@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Tesis - CUNOC</title>
+    <style>#content {
+    height: 100vh;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+</style>
     <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -131,12 +138,8 @@
         </div>
     </div>
 
-    <script>
-        function loadPage(page) {
-            const content = document.getElementById('content');
-            content.innerHTML = `<iframe src="./subpaginas/${page}.php" frameborder="0" style="width: 100%; height: 100%;"></iframe>`;
-        }
-    </script>
+    <!-- Cargar el script cargarPag.js -->
+    <script src="assets/js/cargarPag.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -17,13 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql->bind_param("sssss", $nombre, $apellidos, $carnet, $correo, $carrera);
 
         if ($sql->execute()) {
-            header("Location: ../../index.php?a_success=1");
+            header("Location: ../../inicio");
         } else {
-            header("Location: ../../index.php?a_success=0");
+        //    header("Location: ../../index.php?a_success=0");
         }
     } else {
-        header("Location: ../../index.php?a_success=0");
+       // header("Location: ../../index.php?a_success=0");
     }
 } else {
-    header("Location: ../../index.php?a_success=0");
+    //header("Location: ../../index.php?a_success=0");
 }
