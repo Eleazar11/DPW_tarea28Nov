@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include '../../modelo/conexion.php'; // Ruta correcta hacia conexion.php
+include '../../modelo/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST['nombre'] ?? '';
@@ -17,13 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql->bind_param("sssss", $nombre, $apellidos, $carnet, $correo, $carrera);
 
         if ($sql->execute()) {
-            header("Location: ../../inicio");
+            echo json_encode(['success' => true, 'message' => 'Estudiante registrado correctamente.']);
         } else {
-        //    header("Location: ../../index.php?a_success=0");
+            echo json_encode(['success' => false, 'message' => 'Error al registrar al estudiante.']);
         }
     } else {
-       // header("Location: ../../index.php?a_success=0");
+        echo json_encode(['success' => false, 'message' => 'Todos los campos son obligatorios.']);
     }
 } else {
-    //header("Location: ../../index.php?a_success=0");
+    echo json_encode(['success' => false, 'message' => 'Método no permitido.']);
 }

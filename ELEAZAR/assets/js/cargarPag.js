@@ -1,7 +1,17 @@
 function loadPage(page) {
-    const content = document.getElementById('content');
-    content.innerHTML = `<iframe src="./subpaginas/${page}.php" frameborder="0" style="width: 100%; height: calc(100vh - 32px);"></iframe>`;
+    fetch(`subpaginas/${page}.php`)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('content').innerHTML = data;
+
+            // Ejecuta los scripts en la nueva subpágina
+            const scripts = document.getElementById('content').getElementsByTagName('script');
+            for (let script of scripts) {
+                eval(script.innerHTML); // Ejecuta el código del script
+            }
+        });
 }
+
 
 
 // Cargar la página de inicio por defecto
